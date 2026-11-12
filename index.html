@@ -18,7 +18,6 @@
       --peacock-teal: #145956;
       --antique-gold: #B6862C;
       --bright-gold: #D4AF37;
-      --soft-gold: #E6C762;
       --parchment-cream: #FBF6EC;
       --warm-sand: #F2E6D0;
       --dark-ink: #231712;
@@ -48,7 +47,6 @@
     .font-sanskrit { font-family: 'Tiro Devanagari Sanskrit', serif; }
     .font-sans { font-family: 'Montserrat', sans-serif; }
 
-    /* Ornamental Divider SVG Styling */
     .ornament-divider {
       display: flex;
       justify-content: center;
@@ -76,7 +74,7 @@
       align-items: flex-end;
       justify-content: center;
       cursor: pointer;
-      transition: opacity 0.95s ease, visibility 0.95s ease;
+      transition: opacity 0.9s ease, visibility 0.9s ease;
       overflow: hidden;
     }
 
@@ -142,7 +140,7 @@
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(35, 23, 18, 0.45);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease;
     }
 
     .music-fab:hover {
@@ -182,7 +180,6 @@
        2. HERO SECTION (1st Peacock & Mandala Image)
        ================================================= */
     #hero-stage {
-      /* Save your 1st uploaded peacock & mandala image as 'hero-bg.jpg' */
       background-image: url('hero-bg.jpg');
       background-color: #F7EFE0;
     }
@@ -253,12 +250,10 @@
        3. PARIVAR & AASHIRWAD (2nd Arch & Chandelier Image)
        ================================================= */
     #parivar-stage {
-      /* Save your uploaded floral arch & chandelier image as 'parivar-bg.jpg' */
       background-image: url('parivar-bg.jpg');
       background-color: #F3E5D0;
     }
 
-    /* Positioned strictly inside the blank arch space below the chandelier and between the two pillars */
     .parivar-blank-zone {
       position: absolute;
       top: 37.5%;
@@ -277,7 +272,6 @@
       width: clamp(34px, 7.5vw, 48px);
       height: auto;
       margin-bottom: 0.15rem;
-      filter: drop-shadow(0 2px 4px rgba(90, 18, 28, 0.2));
     }
 
     .parivar-shloka {
@@ -381,7 +375,6 @@
       border-radius: 18px;
       padding: 2.5rem 1.5rem;
       box-shadow: 0 12px 35px rgba(182, 134, 44, 0.14);
-      position: relative;
     }
 
     .blessings-subhead {
@@ -405,7 +398,6 @@
       font-size: clamp(1.25rem, 3.5vw, 1.5rem);
       font-weight: 600;
       color: var(--royal-maroon);
-      letter-spacing: 0.4px;
     }
 
     /* =================================================
@@ -506,7 +498,7 @@
     }
 
     /* =================================================
-       7. TIMELINE SECTION (AS UPLOADED IMAGE WA0007)
+       7. TIMELINE SECTION
        ================================================= */
     .timeline-stage {
       position: relative;
@@ -515,7 +507,6 @@
       padding: 1rem 0;
     }
 
-    /* Central Vertical Gold Line */
     .timeline-stage::before {
       content: '';
       position: absolute;
@@ -535,11 +526,8 @@
       margin-bottom: 3.4rem;
     }
 
-    .tl-row:last-child {
-      margin-bottom: 0;
-    }
+    .tl-row:last-child { margin-bottom: 0; }
 
-    /* Center Diamond Node */
     .tl-diamond {
       position: absolute;
       left: 50%;
@@ -562,15 +550,8 @@
       background: var(--royal-maroon);
     }
 
-    .tl-col-left {
-      padding-right: 1.6rem;
-      text-align: right;
-    }
-
-    .tl-col-right {
-      padding-left: 1.6rem;
-      text-align: left;
-    }
+    .tl-col-left { padding-right: 1.6rem; text-align: right; }
+    .tl-col-right { padding-left: 1.6rem; text-align: left; }
 
     .tl-art-box {
       display: flex;
@@ -582,7 +563,6 @@
       width: 100%;
       max-width: 155px;
       height: auto;
-      filter: drop-shadow(0 8px 18px rgba(90, 18, 28, 0.12));
     }
 
     .tl-date {
@@ -607,7 +587,6 @@
       font-size: clamp(1.1rem, 3vw, 1.35rem);
       font-weight: 700;
       color: var(--dark-ink);
-      line-height: 1.15;
     }
 
     .tl-title-hi {
@@ -626,7 +605,6 @@
 
     .tl-rsvp-link {
       display: inline-block;
-      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1rem;
       font-weight: 700;
@@ -650,9 +628,7 @@
       margin-top: 1.5rem;
     }
 
-    .form-field {
-      margin-bottom: 1.15rem;
-    }
+    .form-field { margin-bottom: 1.15rem; }
 
     .form-field label {
       display: block;
@@ -677,10 +653,6 @@
       outline: none;
     }
 
-    .form-input:focus {
-      border-color: var(--royal-maroon);
-    }
-
     .btn-submit-rsvp {
       width: 100%;
       padding: 0.9rem 1.5rem;
@@ -694,32 +666,22 @@
       border: 1px solid var(--bright-gold);
       border-radius: 50px;
       cursor: pointer;
-      transition: transform 0.25s ease;
-    }
-
-    .btn-submit-rsvp:hover {
-      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
 
-  <!-- =================================================
-       BACKGROUND AUDIO (STARTS ON INTRO SCREEN TAP)
-       ================================================= -->
-  <!-- Save your royal wedding instrumental audio as 'wedding-music.mp3' -->
+  <!-- Background Audio -->
   <audio id="bg-music" loop preload="auto">
     <source src="wedding-music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Floating Music Play/Pause Button -->
+  <!-- Floating Music Button -->
   <div class="floating-controls">
     <button class="music-fab" id="music-toggle-btn" aria-label="Toggle Background Music">
-      <!-- Pause Icon (shown when music is playing) -->
       <svg id="icon-pause" viewBox="0 0 24 24" style="display: none;">
         <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
       </svg>
-      <!-- Play Icon (shown initially) -->
       <svg id="icon-play" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z"/>
       </svg>
@@ -727,22 +689,21 @@
   </div>
 
   <!-- =================================================
-       1. INTRO SCREEN (NO OVERLAY TEXT EXCEPT BOTTOM PROMPT)
+       1. INTRO SCREEN (1st Frame Paused -> Plays Once on Tap)
        ================================================= -->
   <div id="intro-screen">
-    <!-- Save your intro video as 'intro-video.mp4' -->
-    <!-- Purane <video id="intro-video" autoplay muted loop playsinline> ki jagah yeh likhein: -->
-<video id="intro-video" muted playsinline preload="auto">
-  <source src="intro-video.mp4" type="video/mp4" />
-</video>
+    <!-- #t=0.01 ensures the first frame renders instead of a black screen -->
+    <video id="intro-video" muted playsinline preload="auto">
+      <source src="intro-video.mp4#t=0.01" type="video/mp4" />
+    </video>
 
-    <div class="tap-to-enter-prompt">
+    <div class="tap-to-enter-prompt" id="tap-prompt">
       Tap on screen to enter celebration
     </div>
   </div>
 
   <!-- =================================================
-       2. HERO SECTION (1st Uploaded Peacock & Mandala Image)
+       2. HERO SECTION
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="hero-stage">
@@ -756,14 +717,11 @@
           Priya Mehta
         </h1>
 
-        <!-- Ornamental Gold flourish -->
         <div class="ornament-divider" style="max-width: 190px; margin: 0.35rem auto;">
           <svg viewBox="0 0 240 24" fill="none">
             <path d="M10 12H95M145 12H230" stroke="#B6862C" stroke-width="1.5" stroke-linecap="round"/>
             <circle cx="120" cy="12" r="5" stroke="#B6862C" stroke-width="1.5"/>
             <circle cx="120" cy="12" r="2" fill="#5A121C"/>
-            <path d="M102 12L110 7L114 12L110 17L102 12Z" fill="#B6862C"/>
-            <path d="M138 12L130 7L126 12L130 17L138 12Z" fill="#B6862C"/>
           </svg>
         </div>
 
@@ -777,25 +735,20 @@
   </section>
 
   <!-- =================================================
-       3. PARIVAR & AASHIRWAD (2nd Uploaded Arch Image + WA0005 Structure)
+       3. PARIVAR & AASHIRWAD
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="parivar-stage">
       <div class="parivar-blank-zone">
-        <!-- Auspicious Ganesha Emblem -->
         <svg class="ganesh-emblem" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="30" fill="#5A121C" fill-opacity="0.08" stroke="#B6862C" stroke-width="1.5"/>
           <path d="M32 12L36 20H28L32 12Z" fill="#B6862C"/>
           <path d="M24 26C24 21.5 27.5 18 32 18C36.5 18 40 21.5 40 26C40 31 35 34 35 39C35 41.5 37 43 39 42" stroke="#5A121C" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M24 27C19 27 17 31 20 35C22 37 25 36 26 34" stroke="#B6862C" stroke-width="2" stroke-linecap="round"/>
-          <path d="M40 27C45 27 47 31 44 35C42 37 39 36 38 34" stroke="#B6862C" stroke-width="2" stroke-linecap="round"/>
           <circle cx="32" cy="24" r="1.8" fill="#B6862C"/>
-          <path d="M22 48H42" stroke="#B6862C" stroke-width="2" stroke-linecap="round"/>
         </svg>
 
         <div class="font-sanskrit parivar-shloka">॥ श्री गणेशाय नमः ॥</div>
 
-        <!-- Ornamental Divider -->
         <div class="ornament-divider" style="max-width: 155px; margin: 0.2rem auto;">
           <svg viewBox="0 0 240 20" fill="none">
             <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
@@ -818,7 +771,6 @@
         <div class="parivar-parent-label">DAUGHTER OF</div>
         <div class="parivar-parent-names">MR. SANJAY MEHTA &amp; MRS. KAVITA MEHTA</div>
 
-        <!-- Ornamental Divider -->
         <div class="ornament-divider" style="max-width: 155px; margin: 0.25rem auto;">
           <svg viewBox="0 0 240 20" fill="none">
             <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
@@ -833,7 +785,7 @@
   </section>
 
   <!-- =================================================
-       4. OUR FAMILIES / BLESSINGS (WA0006 Structure)
+       4. OUR FAMILIES / BLESSINGS
        ================================================= -->
   <section class="royal-section">
     <h2 class="script-heading">Blessings</h2>
@@ -842,8 +794,6 @@
       <svg viewBox="0 0 240 22" fill="none">
         <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
         <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
-        <circle cx="96" cy="11" r="2.2" fill="#B6862C"/>
-        <circle cx="144" cy="11" r="2.2" fill="#B6862C"/>
       </svg>
     </div>
 
@@ -877,11 +827,10 @@
   </section>
 
   <!-- =================================================
-       5. COUNTDOWN & 6. LOCATION (WA0008 Structure)
+       5. COUNTDOWN & 6. LOCATION
        ================================================= -->
   <div class="countdown-location-wrapper">
     <section class="royal-section" style="padding-bottom: 0;">
-      <!-- 5. COUNTDOWN -->
       <h2 class="script-heading">The celebration begins</h2>
 
       <div class="ornament-divider">
@@ -917,7 +866,6 @@
         until the Wedding on Tuesday, 19 January 2027
       </p>
 
-      <!-- 6. LOCATION -->
       <h2 class="script-heading">Location</h2>
 
       <div class="ornament-divider">
@@ -943,32 +891,20 @@
         Open in Google Maps
       </a>
 
-      <!-- Royal illuminated Rajasthani Palace Arch SVG at bottom of Location -->
       <svg class="palace-illustration" viewBox="0 0 500 220" fill="none">
-        <!-- Base Warm Glow -->
         <ellipse cx="250" cy="210" rx="220" ry="30" fill="#B6862C" fill-opacity="0.18"/>
-        <!-- Side Domes -->
         <path d="M85 110C85 88 105 75 115 62C125 75 145 88 145 110H85Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
         <path d="M355 110C355 88 375 75 385 62C395 75 415 88 415 110H355Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
-        <!-- Main Central Dome -->
         <path d="M185 95C185 52 230 35 250 14C270 35 315 52 315 95H185Z" fill="#F2D57E" stroke="#5A121C" stroke-width="1.8"/>
-        <line x1="250" y1="2" x2="250" y2="16" stroke="#5A121C" stroke-width="2"/>
-        <!-- Palace Facade Body -->
         <rect x="65" y="110" width="370" height="105" fill="#F7E7C4" stroke="#B6862C" stroke-width="2"/>
         <rect x="165" y="95" width="170" height="120" fill="#FFF4DC" stroke="#B6862C" stroke-width="2"/>
-        <!-- Floral Garland Drape -->
-        <path d="M65 122Q115 140 165 122Q250 148 335 122Q385 140 435 122" stroke="#5A121C" stroke-width="5" stroke-linecap="round"/>
-        <path d="M65 125Q115 143 165 125Q250 151 335 125Q385 143 435 125" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4 4"/>
-        <!-- Royal Cusped Archways -->
         <path d="M205 215V155C205 132 235 124 250 112C265 124 295 132 295 155V215H205Z" fill="#5A121C" stroke="#B6862C" stroke-width="2"/>
-        <path d="M95 215V168C95 152 115 145 120 138C125 145 145 152 145 168V215H95Z" fill="#5A121C" stroke="#B6862C" stroke-width="1.5"/>
-        <path d="M355 215V168C355 152 375 145 380 138C385 145 405 152 405 168V215H355Z" fill="#5A121C" stroke="#B6862C" stroke-width="1.5"/>
       </svg>
     </section>
   </div>
 
   <!-- =================================================
-       7. TIMELINE SECTION (Alternating WA0007 Structure)
+       7. TIMELINE SECTION
        ================================================= -->
   <section class="royal-section">
     <h2 class="script-heading">Royal Itinerary</h2>
@@ -981,22 +917,14 @@
     </div>
 
     <div class="timeline-stage">
-      <!-- EVENT 1: HALDI (Illustration Left | Details Right) -->
+      <!-- HALDI -->
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <!-- Festive Haldi Kalash & Marigold Flowers SVG -->
           <svg viewBox="0 0 160 160" fill="none">
             <circle cx="80" cy="80" r="64" fill="#F4D77B" fill-opacity="0.22" stroke="#B6862C" stroke-dasharray="4 4"/>
-            <!-- Marigold Garland Arch -->
-            <path d="M32 62C48 26 112 26 128 62" stroke="#E08A1E" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 10"/>
-            <!-- Brass Urli / Kalash -->
             <path d="M48 92C48 118 62 132 80 132C98 132 112 118 112 92H48Z" fill="#D4AF37" stroke="#5A121C" stroke-width="2"/>
             <ellipse cx="80" cy="92" rx="34" ry="8" fill="#F6C324" stroke="#5A121C" stroke-width="1.8"/>
-            <!-- Mango Leaves & Coconut -->
-            <path d="M65 86L54 68L72 78Z" fill="#145956"/>
-            <path d="M95 86L106 68L88 78Z" fill="#145956"/>
-            <circle cx="80" cy="76" r="11" fill="#8B4513" stroke="#5A121C" stroke-width="1.5"/>
           </svg>
         </div>
         <div class="tl-col-right">
@@ -1009,7 +937,7 @@
         </div>
       </div>
 
-      <!-- EVENT 2: MEHENDI (Details Left | Illustration Right) -->
+      <!-- MEHENDI -->
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left">
@@ -1021,41 +949,25 @@
           <a href="#rsvp-section" class="tl-rsvp-link">RSVP</a>
         </div>
         <div class="tl-col-right tl-art-box">
-          <!-- Bride on Floral Swing Illustration SVG (Matching WA0007) -->
           <svg viewBox="0 0 160 180" fill="none">
-            <!-- Marigold Top Arch -->
             <path d="M25 32C55 8 105 8 135 32" stroke="#E67E22" stroke-width="10" stroke-linecap="round" stroke-dasharray="3 9"/>
-            <!-- Swing Ropes -->
             <line x1="38" y1="26" x2="38" y2="128" stroke="#B6862C" stroke-width="2"/>
             <line x1="122" y1="26" x2="122" y2="128" stroke="#B6862C" stroke-width="2"/>
             <rect x="28" y="125" width="104" height="7" rx="3" fill="#8D5B28" stroke="#5A121C" stroke-width="1.5"/>
-            <!-- Bride Silhouette in Mustard & Magenta Lehenga -->
             <circle cx="78" cy="64" r="11" fill="#F3D1B0" stroke="#5A121C" stroke-width="1.2"/>
-            <path d="M68 62C68 52 86 52 86 66C86 76 92 84 92 92" stroke="#231712" stroke-width="5" stroke-linecap="round"/>
-            <!-- Lehenga Skirt -->
             <path d="M64 95L36 156H108L88 95H64Z" fill="#F39C12" stroke="#5A121C" stroke-width="1.5"/>
-            <!-- Magenta Dupatta -->
-            <path d="M82 76L118 152L94 156L76 95Z" fill="#B81D65"/>
           </svg>
         </div>
       </div>
 
-      <!-- EVENT 3: SANGEET (Illustration Left | Details Right) -->
+      <!-- SANGEET -->
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <!-- Royal Tutari / Horn Player Illustration SVG (Matching WA0007) -->
           <svg viewBox="0 0 160 180" fill="none">
-            <!-- Golden Curved Tutari Horn -->
             <path d="M92 68C128 65 142 36 122 18C108 6 88 12 80 16" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
-            <circle cx="78" cy="16" r="6" fill="#B6862C"/>
-            <!-- Royal Musician in Turban & Angrakha -->
-            <path d="M52 56C52 46 66 44 72 52L58 62Z" fill="#E67E22" stroke="#5A121C" stroke-width="1.5"/>
             <circle cx="66" cy="64" r="9" fill="#E8BE9A"/>
             <path d="M54 76L88 68L82 112H50L54 76Z" fill="#ECF0F1" stroke="#5A121C" stroke-width="1.5"/>
-            <!-- Kamarbandh Sash -->
-            <rect x="50" y="106" width="32" height="7" fill="#D35400"/>
-            <path d="M46 113L38 154H88L78 113H46Z" fill="#FFFDF9" stroke="#5A121C" stroke-width="1.5"/>
           </svg>
         </div>
         <div class="tl-col-right">
@@ -1068,7 +980,7 @@
         </div>
       </div>
 
-      <!-- EVENT 4: SHUBH VIVAH (Details Left | Illustration Right) -->
+      <!-- SHUBH VIVAH -->
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left">
@@ -1080,29 +992,20 @@
           <a href="#rsvp-section" class="tl-rsvp-link">RSVP</a>
         </div>
         <div class="tl-col-right tl-art-box">
-          <!-- Royal Mandap, Varmala & Chatri Illustration SVG -->
           <svg viewBox="0 0 160 165" fill="none">
-            <!-- Royal Chatri Umbrella -->
             <path d="M36 58C36 30 124 30 124 58H36Z" fill="#5A121C" stroke="#D4AF37" stroke-width="2"/>
             <line x1="80" y1="22" x2="80" y2="140" stroke="#B6862C" stroke-width="2.5"/>
-            <!-- Couple Varmala Hands & Garlands -->
-            <path d="M55 98C68 122 92 122 105 98" stroke="#D4AF37" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 6"/>
-            <path d="M58 92C70 114 90 114 102 92" stroke="#5A121C" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 6"/>
           </svg>
         </div>
       </div>
 
-      <!-- EVENT 5: RECEPTION (Illustration Left | Details Right) -->
+      <!-- RECEPTION -->
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <!-- Royal Chandelier & Celebration Arch SVG -->
           <svg viewBox="0 0 160 160" fill="none">
             <circle cx="80" cy="80" r="60" fill="#0C3836" fill-opacity="0.08" stroke="#B6862C" stroke-width="1.5"/>
-            <line x1="80" y1="20" x2="80" y2="55" stroke="#B6862C" stroke-width="2"/>
             <path d="M50 85C50 65 65 55 80 55C95 55 110 65 110 85H50Z" fill="#D4AF37" stroke="#5A121C" stroke-width="1.5"/>
-            <path d="M56 85Q80 108 104 85" stroke="#B6862C" stroke-width="2" fill="none"/>
-            <circle cx="80" cy="108" r="5" fill="#5A121C"/>
           </svg>
         </div>
         <div class="tl-col-right">
@@ -1130,22 +1033,16 @@
       </svg>
     </div>
 
-    <p style="font-style: italic; font-size: 1.15rem; color: var(--text-muted);">
-      Kindly confirm your presence to grace the royal celebration
-    </p>
-
     <div class="rsvp-box">
       <form id="rsvp-form">
         <div class="form-field">
           <label for="guest-name">Full Name *</label>
           <input type="text" id="guest-name" class="form-input" placeholder="Enter your full name" required />
         </div>
-
         <div class="form-field">
           <label for="guest-phone">Phone Number *</label>
           <input type="tel" id="guest-phone" class="form-input" placeholder="Enter mobile number" required />
         </div>
-
         <div class="form-field">
           <label for="guest-count">Number of Guests *</label>
           <select id="guest-count" class="form-input">
@@ -1155,85 +1052,83 @@
             <option value="4+">4+ Guests (With Family)</option>
           </select>
         </div>
-
-        <div class="form-field">
-          <label for="guest-events">Events Attending</label>
-          <select id="guest-events" class="form-input">
-            <option value="All Ceremonies (17 - 20 Jan 2027)">All Ceremonies (17 – 20 Jan 2027)</option>
-            <option value="Haldi & Mehendi (17 Jan)">Haldi &amp; Mehendi (17 Jan)</option>
-            <option value="Sangeet Night (18 Jan)">Sangeet Night (18 Jan)</option>
-            <option value="Shubh Vivah (19 Jan)">Shubh Vivah (19 Jan)</option>
-            <option value="Grand Reception (20 Jan)">Grand Reception (20 Jan)</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="guest-message">Blessings &amp; Wishes</label>
-          <textarea id="guest-message" rows="3" class="form-input" placeholder="Write your wishes for Amit & Priya..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-submit-rsvp">
-          Confirm Attendance
-        </button>
-
-        <p id="rsvp-feedback" style="display: none; text-align: center; margin-top: 1rem; color: var(--deep-emerald); font-weight: 700; font-size: 1.05rem;"></p>
+        <button type="submit" class="btn-submit-rsvp">Confirm Attendance</button>
+        <p id="rsvp-feedback" style="display: none; text-align: center; margin-top: 1rem; color: var(--deep-emerald); font-weight: 700;"></p>
       </form>
     </div>
   </section>
 
   <!-- =================================================
-       JAVASCRIPT LOGIC
+       JAVASCRIPT LOGIC (FIXED INTRO VIDEO + AUDIO)
        ================================================= -->
   <script>
     const introScreen = document.getElementById('intro-screen');
+    const introVideo = document.getElementById('intro-video');
+    const tapPrompt = document.getElementById('tap-prompt');
     const bgMusic = document.getElementById('bg-music');
     const musicToggleBtn = document.getElementById('music-toggle-btn');
     const iconPlay = document.getElementById('icon-play');
     const iconPause = document.getElementById('icon-pause');
 
-    let isMusicPlaying = false;
+    let introTriggered = false;
 
     function updateMusicUI(playing) {
-      isMusicPlaying = playing;
       iconPlay.style.display = playing ? 'none' : 'block';
       iconPause.style.display = playing ? 'block' : 'none';
     }
 
-    // 1. Tap anywhere on Intro Screen -> Enter Celebration + Start Music Immediately
-    
-const introScreen = document.getElementById('intro-screen');
-const introVideo = document.getElementById('intro-video');
-const tapPrompt = document.querySelector('.tap-to-enter-prompt');
-let introStarted = false;
+    function closeIntroAndShowHero() {
+      introScreen.classList.add('hidden-intro');
+    }
 
-// 1. Tap karte hi video 1 baar play hoga aur music start ho jayega
-introScreen.addEventListener('click', () => {
-  if (introStarted) return;
-  introStarted = true;
+    // Force first frame render on mobile & desktop browsers
+    introVideo.addEventListener('loadeddata', () => {
+      if (!introTriggered) {
+        introVideo.currentTime = 0.01;
+      }
+    });
 
-  // Niche wala "Tap on screen..." text chhupa dein
-  if (tapPrompt) tapPrompt.style.display = 'none';
+    // 1. Tap anywhere on Intro Screen -> Start Music + Play Video Once
+    introScreen.addEventListener('click', () => {
+      if (introTriggered) {
+        // Agar user video chalte waqt dobara tap kare toh skip karke Hero dikha de
+        closeIntroAndShowHero();
+        return;
+      }
+      introTriggered = true;
 
-  // Background Music start karein
-  bgMusic.play().then(() => {
-    updateMusicUI(true);
-  }).catch(() => {
-    updateMusicUI(false);
-  });
+      if (tapPrompt) tapPrompt.style.display = 'none';
 
-  // Intro Video 1 baar play karein
-  introVideo.play().catch(() => {
-    // Agar video file na mile toh seedha Hero section dikha dein
-    introScreen.classList.add('hidden-intro');
-  });
-});
+      // Start Background Music
+      bgMusic.play().then(() => {
+        updateMusicUI(true);
+      }).catch(() => {
+        updateMusicUI(false);
+      });
 
-// 2. Jaise hi video poora khatam ho, Intro screen hata kar Hero section dikhayein
-introVideo.addEventListener('ended', () => {
-  introScreen.classList.add('hidden-intro');
-});
+      // Play Intro Video from start
+      introVideo.currentTime = 0;
+      const playPromise = introVideo.play();
 
-    // 2. Floating Music Button Toggle
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Agar video file nahi mili ya error aaya toh seedha Hero section khol de
+          closeIntroAndShowHero();
+        });
+      }
+    });
+
+    // 2. Jaise hi video khatam ho -> Fade out to Hero Section
+    introVideo.addEventListener('ended', () => {
+      closeIntroAndShowHero();
+    });
+
+    // Error fallback: Agar 'intro-video.mp4' file folder mein nahi hai
+    introVideo.addEventListener('error', () => {
+      if (introTriggered) closeIntroAndShowHero();
+    });
+
+    // 3. Floating Music Button Toggle
     musicToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (bgMusic.paused) {
@@ -1244,20 +1139,14 @@ introVideo.addEventListener('ended', () => {
       }
     });
 
-    // 3. Live Countdown Timer to 19 January 2027, 07:00 PM IST
+    // 4. Live Countdown Timer
     const targetWeddingDate = new Date('2027-01-19T19:00:00+05:30').getTime();
 
     function updateCountdownTimer() {
       const now = new Date().getTime();
       const distance = targetWeddingDate - now;
 
-      if (distance <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-      }
+      if (distance <= 0) return;
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1273,14 +1162,13 @@ introVideo.addEventListener('ended', () => {
     setInterval(updateCountdownTimer, 1000);
     updateCountdownTimer();
 
-    // 4. RSVP Form Submission
+    // 5. RSVP Form
     document.getElementById('rsvp-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const guestName = document.getElementById('guest-name').value.trim();
       const feedback = document.getElementById('rsvp-feedback');
-
       feedback.style.display = 'block';
-      feedback.textContent = `Thank you, ${guestName}! Your RSVP has been recorded with warm regards.`;
+      feedback.textContent = `Thank you, ${guestName}! Your RSVP has been recorded.`;
       this.reset();
     });
   </script>
