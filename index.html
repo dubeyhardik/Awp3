@@ -63,6 +63,38 @@
     }
 
     /* =================================================
+       FONT ENTRANCE ANIMATIONS (HERO & AASHIRWAD)
+       ================================================= */
+    .anim-item {
+      opacity: 0;
+      transform: translateY(22px) scale(0.96);
+      filter: blur(5px);
+      transition:
+        opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .section-animated .anim-item {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Staggered delays so each line enters gracefully one after another */
+    .section-animated .delay-1 { transition-delay: 0.15s; }
+    .section-animated .delay-2 { transition-delay: 0.35s; }
+    .section-animated .delay-3 { transition-delay: 0.58s; }
+    .section-animated .delay-4 { transition-delay: 0.80s; }
+    .section-animated .delay-5 { transition-delay: 1.02s; }
+    .section-animated .delay-6 { transition-delay: 1.24s; }
+    .section-animated .delay-7 { transition-delay: 1.46s; }
+    .section-animated .delay-8 { transition-delay: 1.68s; }
+    .section-animated .delay-9 { transition-delay: 1.90s; }
+    .section-animated .delay-10 { transition-delay: 2.12s; }
+
+    /* =================================================
        1. INTRO SCREEN (CLEAN VIDEO + SMALL BOTTOM TEXT)
        ================================================= */
     #intro-screen {
@@ -339,7 +371,7 @@
     }
 
     /* =================================================
-       COMMON INNER CONTAINER FOR SECTIONS 4 TO 8
+       COMMON INNER CONTAINER
        ================================================= */
     .royal-section {
       max-width: 620px;
@@ -355,6 +387,142 @@
       color: var(--royal-maroon);
       font-weight: 400;
       line-height: 1.1;
+    }
+
+    /* =================================================
+       SWIPEABLE 5 COUPLE IMAGES ROYAL FRAME SLIDER
+       ================================================= */
+    .couple-frame-outer {
+      position: relative;
+      max-width: 420px;
+      margin: 1.8rem auto 0;
+      padding: 16px;
+      background: linear-gradient(145deg, #FFFDF9 0%, #F3E4C8 100%);
+      border: 2px solid var(--antique-gold);
+      border-radius: 210px 210px 24px 24px;
+      box-shadow:
+        0 18px 45px rgba(90, 18, 28, 0.18),
+        inset 0 0 0 4px #FFFDF9,
+        inset 0 0 0 6px rgba(182, 134, 44, 0.55);
+      user-select: none;
+    }
+
+    /* Decorative corner ornament badge at top of arch */
+    .frame-crown-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--royal-maroon);
+      color: var(--bright-gold);
+      border: 1.5px solid var(--bright-gold);
+      padding: 2px 14px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      z-index: 6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .slider-viewport {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 195px 195px 14px 14px;
+      overflow: hidden;
+      position: relative;
+      background: #E8D7B9;
+      border: 1.5px solid var(--antique-gold);
+      touch-action: pan-y;
+      cursor: grab;
+    }
+
+    .slider-viewport:active {
+      cursor: grabbing;
+    }
+
+    .slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide-item {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Prev / Next Side Golden Buttons */
+    .slider-arrow {
+      position: absolute;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(90, 18, 28, 0.88);
+      border: 1.5px solid var(--bright-gold);
+      color: #FFFDF7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .slider-arrow:hover {
+      background: var(--deep-emerald);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .slider-arrow.prev { left: -12px; }
+    .slider-arrow.next { right: -12px; }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      margin-top: 1.15rem;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(182, 134, 44, 0.35);
+      border: 1px solid var(--antique-gold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      width: 24px;
+      border-radius: 10px;
+      background: var(--royal-maroon);
+      border-color: var(--royal-maroon);
+    }
+
+    .swipe-hint-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--peacock-teal);
+      margin-top: 0.6rem;
+      font-weight: 700;
     }
 
     /* =================================================
@@ -689,10 +857,9 @@
   </div>
 
   <!-- =================================================
-       1. INTRO SCREEN (1st Frame Paused -> Plays Once on Tap)
+       1. INTRO SCREEN
        ================================================= -->
   <div id="intro-screen">
-    <!-- #t=0.01 ensures the first frame renders instead of a black screen -->
     <video id="intro-video" muted playsinline preload="auto">
       <source src="intro-video.mp4#t=0.01" type="video/mp4" />
     </video>
@@ -703,21 +870,21 @@
   </div>
 
   <!-- =================================================
-       2. HERO SECTION
+       2. HERO SECTION (WITH STAGGERED FONT ANIMATIONS)
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="hero-stage">
       <div class="hero-blank-zone">
-        <div class="font-sanskrit hero-shloka">॥ श्री गणेशाय नमः ॥</div>
-        <div class="hero-subline">With the blessings of our parents</div>
+        <div class="font-sanskrit hero-shloka anim-item delay-1">॥ श्री गणेशाय नमः ॥</div>
+        <div class="hero-subline anim-item delay-2">With the blessings of our parents</div>
 
-        <h1 class="hero-names">
+        <h1 class="hero-names anim-item delay-3">
           Amit Sharma
           <span class="hero-amp">&amp;</span>
           Priya Mehta
         </h1>
 
-        <div class="ornament-divider" style="max-width: 190px; margin: 0.35rem auto;">
+        <div class="ornament-divider anim-item delay-4" style="max-width: 190px; margin: 0.35rem auto;">
           <svg viewBox="0 0 240 24" fill="none">
             <path d="M10 12H95M145 12H230" stroke="#B6862C" stroke-width="1.5" stroke-linecap="round"/>
             <circle cx="120" cy="12" r="5" stroke="#B6862C" stroke-width="1.5"/>
@@ -725,8 +892,8 @@
           </svg>
         </div>
 
-        <div class="hero-date">18 – 20 JANUARY 2027</div>
-        <div class="hero-venue">
+        <div class="hero-date anim-item delay-5">18 – 20 JANUARY 2027</div>
+        <div class="hero-venue anim-item delay-6">
           The Grand Heritage Palace,<br />
           Amer Road, Jaipur, Rajasthan
         </div>
@@ -735,52 +902,111 @@
   </section>
 
   <!-- =================================================
-       3. PARIVAR & AASHIRWAD
+       3. PARIVAR & AASHIRWAD (WITH STAGGERED FONT ANIMATIONS)
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="parivar-stage">
       <div class="parivar-blank-zone">
-        <svg class="ganesh-emblem" viewBox="0 0 64 64" fill="none">
+        <svg class="ganesh-emblem anim-item delay-1" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="30" fill="#5A121C" fill-opacity="0.08" stroke="#B6862C" stroke-width="1.5"/>
           <path d="M32 12L36 20H28L32 12Z" fill="#B6862C"/>
           <path d="M24 26C24 21.5 27.5 18 32 18C36.5 18 40 21.5 40 26C40 31 35 34 35 39C35 41.5 37 43 39 42" stroke="#5A121C" stroke-width="2.5" stroke-linecap="round"/>
           <circle cx="32" cy="24" r="1.8" fill="#B6862C"/>
         </svg>
 
-        <div class="font-sanskrit parivar-shloka">॥ श्री गणेशाय नमः ॥</div>
+        <div class="font-sanskrit parivar-shloka anim-item delay-2">॥ श्री गणेशाय नमः ॥</div>
 
-        <div class="ornament-divider" style="max-width: 155px; margin: 0.2rem auto;">
+        <div class="ornament-divider anim-item delay-3" style="max-width: 155px; margin: 0.2rem auto;">
           <svg viewBox="0 0 240 20" fill="none">
             <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
             <circle cx="120" cy="10" r="4.5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
           </svg>
         </div>
 
-        <p class="parivar-invite-text">
+        <p class="parivar-invite-text anim-item delay-4">
           With the blessings of our elders,<br />
           you are cordially invited to the wedding of
         </p>
 
-        <div class="parivar-couple-name">Amit Sharma</div>
-        <div class="parivar-parent-label">SON OF</div>
-        <div class="parivar-parent-names">MR. RAJESH SHARMA &amp; MRS. SUNITA SHARMA</div>
+        <div class="parivar-couple-name anim-item delay-5">Amit Sharma</div>
+        <div class="parivar-parent-label anim-item delay-6">SON OF</div>
+        <div class="parivar-parent-names anim-item delay-6">MR. RAJESH SHARMA &amp; MRS. SUNITA SHARMA</div>
 
-        <div class="parivar-with">with</div>
+        <div class="parivar-with anim-item delay-7">with</div>
 
-        <div class="parivar-couple-name">Priya Mehta</div>
-        <div class="parivar-parent-label">DAUGHTER OF</div>
-        <div class="parivar-parent-names">MR. SANJAY MEHTA &amp; MRS. KAVITA MEHTA</div>
+        <div class="parivar-couple-name anim-item delay-8">Priya Mehta</div>
+        <div class="parivar-parent-label anim-item delay-9">DAUGHTER OF</div>
+        <div class="parivar-parent-names anim-item delay-9">MR. SANJAY MEHTA &amp; MRS. KAVITA MEHTA</div>
 
-        <div class="ornament-divider" style="max-width: 155px; margin: 0.25rem auto;">
+        <div class="ornament-divider anim-item delay-10" style="max-width: 155px; margin: 0.25rem auto;">
           <svg viewBox="0 0 240 20" fill="none">
             <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
             <circle cx="120" cy="10" r="4.5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
           </svg>
         </div>
 
-        <div class="parivar-footer-date">Tuesday, 19 January 2027</div>
-        <div class="parivar-footer-venue">The Grand Heritage Palace, Amer Road, Jaipur</div>
+        <div class="parivar-footer-date anim-item delay-10">Tuesday, 19 January 2027</div>
+        <div class="parivar-footer-venue anim-item delay-10">The Grand Heritage Palace, Amer Road, Jaipur</div>
       </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       SWIPEABLE 5 COUPLE IMAGES ROYAL FRAME SECTION
+       ================================================= -->
+  <section class="royal-section">
+    <h2 class="script-heading">Royal Moments</h2>
+
+    <div class="ornament-divider">
+      <svg viewBox="0 0 240 22" fill="none">
+        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
+        <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="couple-frame-outer">
+      <div class="frame-crown-badge">AMIT &amp; PRIYA</div>
+
+      <!-- Left / Right Arrow Buttons -->
+      <button class="slider-arrow prev" id="slide-prev" aria-label="Previous Photo">&#10094;</button>
+      <button class="slider-arrow next" id="slide-next" aria-label="Next Photo">&#10095;</button>
+
+      <!-- Swipeable Arch Frame Viewport -->
+      <div class="slider-viewport" id="couple-slider">
+        <div class="slider-track" id="slider-track">
+          <!-- Image 1 -->
+          <div class="slide-item">
+            <img src="couple-1.jpg" alt="Amit & Priya Photo 1" />
+          </div>
+          <!-- Image 2 -->
+          <div class="slide-item">
+            <img src="couple-2.jpg" alt="Amit & Priya Photo 2" />
+          </div>
+          <!-- Image 3 -->
+          <div class="slide-item">
+            <img src="couple-3.jpg" alt="Amit & Priya Photo 3" />
+          </div>
+          <!-- Image 4 -->
+          <div class="slide-item">
+            <img src="couple-4.jpg" alt="Amit & Priya Photo 4" />
+          </div>
+          <!-- Image 5 -->
+          <div class="slide-item">
+            <img src="couple-5.jpg" alt="Amit & Priya Photo 5" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Dots Indicator -->
+      <div class="slider-dots" id="slider-dots">
+        <span class="slider-dot active" data-index="0"></span>
+        <span class="slider-dot" data-index="1"></span>
+        <span class="slider-dot" data-index="2"></span>
+        <span class="slider-dot" data-index="3"></span>
+        <span class="slider-dot" data-index="4"></span>
+      </div>
+
+      <div class="swipe-hint-text">← Swipe to see memories →</div>
     </div>
   </section>
 
@@ -1059,7 +1285,7 @@
   </section>
 
   <!-- =================================================
-       JAVASCRIPT LOGIC (FIXED INTRO VIDEO + AUDIO)
+       JAVASCRIPT LOGIC
        ================================================= -->
   <script>
     const introScreen = document.getElementById('intro-screen');
@@ -1069,6 +1295,8 @@
     const musicToggleBtn = document.getElementById('music-toggle-btn');
     const iconPlay = document.getElementById('icon-play');
     const iconPause = document.getElementById('icon-pause');
+    const heroStage = document.getElementById('hero-stage');
+    const parivarStage = document.getElementById('parivar-stage');
 
     let introTriggered = false;
 
@@ -1077,21 +1305,33 @@
       iconPause.style.display = playing ? 'block' : 'none';
     }
 
+    // Trigger Hero Section font entrance animation as soon as intro closes
     function closeIntroAndShowHero() {
       introScreen.classList.add('hidden-intro');
+      heroStage.classList.add('section-animated');
     }
 
-    // Force first frame render on mobile & desktop browsers
+    // Scroll Observer for Parivar & Aashirwad Section (Triggers on first view)
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.28 });
+
+    sectionObserver.observe(parivarStage);
+
     introVideo.addEventListener('loadeddata', () => {
       if (!introTriggered) {
         introVideo.currentTime = 0.01;
       }
     });
 
-    // 1. Tap anywhere on Intro Screen -> Start Music + Play Video Once
+    // 1. Intro Screen Tap
     introScreen.addEventListener('click', () => {
       if (introTriggered) {
-        // Agar user video chalte waqt dobara tap kare toh skip karke Hero dikha de
         closeIntroAndShowHero();
         return;
       }
@@ -1099,36 +1339,31 @@
 
       if (tapPrompt) tapPrompt.style.display = 'none';
 
-      // Start Background Music
       bgMusic.play().then(() => {
         updateMusicUI(true);
       }).catch(() => {
         updateMusicUI(false);
       });
 
-      // Play Intro Video from start
       introVideo.currentTime = 0;
       const playPromise = introVideo.play();
 
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Agar video file nahi mili ya error aaya toh seedha Hero section khol de
           closeIntroAndShowHero();
         });
       }
     });
 
-    // 2. Jaise hi video khatam ho -> Fade out to Hero Section
     introVideo.addEventListener('ended', () => {
       closeIntroAndShowHero();
     });
 
-    // Error fallback: Agar 'intro-video.mp4' file folder mein nahi hai
     introVideo.addEventListener('error', () => {
       if (introTriggered) closeIntroAndShowHero();
     });
 
-    // 3. Floating Music Button Toggle
+    // 2. Floating Music Toggle
     musicToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (bgMusic.paused) {
@@ -1139,13 +1374,77 @@
       }
     });
 
+    // 3. Swipeable 5 Couple Photos Slider Logic
+    const sliderTrack = document.getElementById('slider-track');
+    const sliderViewport = document.getElementById('couple-slider');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.getElementById('slide-prev');
+    const nextBtn = document.getElementById('slide-next');
+    const totalSlides = 5;
+    let currentSlide = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function goToSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goToSlide(Number(dot.dataset.index));
+      });
+    });
+
+    // Touch Swipe Events for Mobile
+    sliderViewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1); // Swipe Left -> Next
+        } else {
+          goToSlide(currentSlide - 1); // Swipe Right -> Prev
+        }
+      }
+      isDragging = false;
+    });
+
+    // Mouse Drag Support for Desktop
+    sliderViewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      const diffX = startX - e.clientX;
+      if (Math.abs(diffX) > 45) {
+        if (diffX > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
+      }
+      isDragging = false;
+    });
+
     // 4. Live Countdown Timer
     const targetWeddingDate = new Date('2027-01-19T19:00:00+05:30').getTime();
 
     function updateCountdownTimer() {
       const now = new Date().getTime();
       const distance = targetWeddingDate - now;
-
       if (distance <= 0) return;
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
