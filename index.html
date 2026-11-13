@@ -16,12 +16,15 @@
       --deep-maroon: #3E0B12;
       --deep-emerald: #0C3836;
       --peacock-teal: #145956;
-      --antique-gold: #B6862C;
+      --antique-gold: #9E7220;
       --bright-gold: #D4AF37;
-      --parchment-cream: #FBF6EC;
-      --warm-sand: #F2E6D0;
+      /* Muted Sage Green Palette */
+      --sage-bg: #C2CBB8;
+      --sage-deep: #AEB9A2;
+      --sage-card: #EBF0E6;
+      --sage-card-inner: #F5F7F2;
       --dark-ink: #231712;
-      --text-muted: #5C4738;
+      --text-muted: #4A3A2E;
     }
 
     * {
@@ -32,13 +35,15 @@
     }
 
     body {
-      background-color: var(--parchment-cream);
-      background-image: radial-gradient(rgba(182, 134, 44, 0.1) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-color: var(--sage-bg);
+      background-image:
+        radial-gradient(rgba(90, 18, 28, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, #C2CBB8 0%, #B6C1AA 50%, #C2CBB8 100%);
+      background-size: 24px 24px, 100% 100%;
       color: var(--dark-ink);
       font-family: 'Cormorant Garamond', serif;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .font-cinzel { font-family: 'Cinzel', serif; }
@@ -51,9 +56,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0.85rem auto;
+      margin: 0.7rem auto;
       width: 100%;
-      max-width: 240px;
+      max-width: 230px;
     }
 
     .ornament-divider svg {
@@ -67,12 +72,12 @@
        ================================================= */
     .anim-item {
       opacity: 0;
-      transform: translateY(22px) scale(0.96);
-      filter: blur(5px);
+      transform: translateY(18px) scale(0.97);
+      filter: blur(4px);
       transition:
-        opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform, filter;
     }
 
@@ -82,17 +87,16 @@
       filter: blur(0);
     }
 
-    /* Staggered delays so each line enters gracefully one after another */
-    .section-animated .delay-1 { transition-delay: 0.15s; }
-    .section-animated .delay-2 { transition-delay: 0.35s; }
-    .section-animated .delay-3 { transition-delay: 0.58s; }
-    .section-animated .delay-4 { transition-delay: 0.80s; }
-    .section-animated .delay-5 { transition-delay: 1.02s; }
-    .section-animated .delay-6 { transition-delay: 1.24s; }
-    .section-animated .delay-7 { transition-delay: 1.46s; }
-    .section-animated .delay-8 { transition-delay: 1.68s; }
-    .section-animated .delay-9 { transition-delay: 1.90s; }
-    .section-animated .delay-10 { transition-delay: 2.12s; }
+    .section-animated .delay-1 { transition-delay: 0.12s; }
+    .section-animated .delay-2 { transition-delay: 0.28s; }
+    .section-animated .delay-3 { transition-delay: 0.45s; }
+    .section-animated .delay-4 { transition-delay: 0.62s; }
+    .section-animated .delay-5 { transition-delay: 0.78s; }
+    .section-animated .delay-6 { transition-delay: 0.94s; }
+    .section-animated .delay-7 { transition-delay: 1.10s; }
+    .section-animated .delay-8 { transition-delay: 1.26s; }
+    .section-animated .delay-9 { transition-delay: 1.42s; }
+    .section-animated .delay-10 { transition-delay: 1.58s; }
 
     /* =================================================
        1. INTRO SCREEN (CLEAN VIDEO + SMALL BOTTOM TEXT)
@@ -186,14 +190,14 @@
     }
 
     /* =================================================
-       ARTWORK STAGE WRAPPER (FOR SECTION 2 & SECTION 3)
+       ARTWORK STAGE WRAPPER (CONTAINER QUERY ENABLED)
        ================================================= */
     .artwork-section-wrapper {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: var(--parchment-cream);
+      background-color: var(--sage-bg);
     }
 
     .artwork-stage {
@@ -205,178 +209,215 @@
       background-position: center center;
       background-repeat: no-repeat;
       overflow: hidden;
-      box-shadow: 0 18px 50px rgba(90, 18, 28, 0.14);
+      container-type: inline-size;
+      box-shadow: 0 18px 50px rgba(25, 38, 28, 0.22);
     }
 
     /* =================================================
-       2. HERO SECTION (1st Peacock & Mandala Image)
+       2. HERO SECTION (STRICT SAFE BLANK AREA: 25.5% TO 52.5%)
        ================================================= */
     #hero-stage {
       background-image: url('hero-bg.jpg');
-      background-color: #F7EFE0;
+      background-color: #E6DEC8;
     }
 
+    /*
+      Calibrated strictly between:
+      - Top Mandala lowest tips (ends at ~24.8%)
+      - Bottom Peacock feather tips (starts at ~53.5%)
+      - Side yellow rose leaves (15% left/right margin)
+    */
     .hero-blank-zone {
       position: absolute;
-      top: 22.5%;
-      bottom: 43.5%;
-      left: 10%;
-      right: 10%;
+      top: 25.5%;
+      bottom: 47.5%;
+      left: 15%;
+      right: 15%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       z-index: 4;
+      gap: 0.35cqw;
     }
 
     .hero-shloka {
-      font-size: clamp(0.88rem, 2.2vw, 1.1rem);
-      color: var(--antique-gold);
+      font-size: clamp(0.68rem, 2.7cqw, 1rem);
+      color: var(--royal-maroon);
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.8px;
+      line-height: 1.15;
     }
 
     .hero-subline {
-      font-size: clamp(0.82rem, 2vw, 1.02rem);
+      font-size: clamp(0.62rem, 2.35cqw, 0.9rem);
       color: var(--dark-ink);
       font-weight: 600;
-      margin-bottom: 0.25rem;
+      line-height: 1.15;
+      margin-bottom: 0.2cqw;
     }
 
     .hero-names {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.35rem, 6.8vw, 3.7rem);
+      font-size: clamp(1.65rem, 7.2cqw, 2.95rem);
       color: var(--royal-maroon);
-      line-height: 1.04;
-      margin: 0.1rem 0;
+      line-height: 0.96;
+      margin: 0.1cqw 0;
     }
 
     .hero-amp {
       font-family: 'Great Vibes', cursive;
-      font-size: 0.72em;
+      font-size: 0.68em;
       color: var(--royal-maroon);
       display: block;
-      margin: 0.05rem 0;
+      line-height: 0.9;
+      margin: 0.05cqw 0;
+    }
+
+    .hero-divider-wrap {
+      width: 48%;
+      max-width: 150px;
+      margin: 0.3cqw auto;
+    }
+
+    .hero-divider-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-date {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.88rem, 2.4vw, 1.18rem);
+      font-size: clamp(0.68rem, 2.75cqw, 1.02rem);
       font-weight: 700;
-      color: #4A3219;
-      letter-spacing: 1.5px;
-      margin-top: 0.2rem;
+      color: #3E2712;
+      letter-spacing: 1.2px;
+      line-height: 1.15;
     }
 
     .hero-venue {
-      font-size: clamp(0.84rem, 2.1vw, 1.05rem);
-      font-weight: 600;
-      color: var(--text-muted);
-      line-height: 1.25;
-      margin-top: 0.15rem;
+      font-size: clamp(0.62rem, 2.35cqw, 0.88rem);
+      font-weight: 700;
+      color: #4A3525;
+      line-height: 1.15;
     }
 
     /* =================================================
-       3. PARIVAR & AASHIRWAD (2nd Arch & Chandelier Image)
+       3. PARIVAR & AASHIRWAD (STRICT SAFE ARCH AREA: 41.5% TO 76%)
        ================================================= */
     #parivar-stage {
       background-image: url('parivar-bg.jpg');
-      background-color: #F3E5D0;
+      background-color: var(--sage-bg);
     }
 
+    /*
+      Calibrated strictly inside the blank cream arch:
+      - Below the hanging golden chandelier crystal drop (ends at ~40.8%)
+      - Above the two peacock heads & bottom roses (starts at ~76.5%)
+      - Inside the two floral inner pillar edges (25.5% left & right)
+    */
     .parivar-blank-zone {
       position: absolute;
-      top: 37.5%;
-      bottom: 13.5%;
-      left: 21%;
-      right: 21%;
+      top: 41.5%;
+      bottom: 24%;
+      left: 25.5%;
+      right: 25.5%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       z-index: 4;
-    }
-
-    .ganesh-emblem {
-      width: clamp(34px, 7.5vw, 48px);
-      height: auto;
-      margin-bottom: 0.15rem;
+      gap: 0.25cqw;
     }
 
     .parivar-shloka {
-      font-size: clamp(0.76rem, 2vw, 0.98rem);
+      font-size: clamp(0.64rem, 2.45cqw, 0.92rem);
       color: var(--royal-maroon);
       font-weight: 700;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
+      line-height: 1.1;
+    }
+
+    .parivar-mini-divider {
+      width: 52%;
+      max-width: 125px;
+      margin: 0.15cqw auto;
+    }
+
+    .parivar-mini-divider svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .parivar-invite-text {
-      font-size: clamp(0.75rem, 1.95vw, 0.98rem);
+      font-size: clamp(0.58rem, 2.15cqw, 0.84rem);
       color: #3D261A;
-      line-height: 1.28;
-      margin: 0.15rem 0 0.25rem;
+      line-height: 1.15;
       font-weight: 600;
+      margin-bottom: 0.15cqw;
     }
 
     .parivar-couple-name {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(1.75rem, 5.2vw, 2.55rem);
+      font-size: clamp(1.35rem, 5.4cqw, 2.15rem);
       color: var(--royal-maroon);
-      line-height: 1.05;
-      margin: 0.08rem 0;
+      line-height: 0.98;
+      margin: 0.05cqw 0;
     }
 
     .parivar-parent-label {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.5rem, 1.25vw, 0.66rem);
-      letter-spacing: 1.8px;
+      font-size: clamp(0.42rem, 1.4cqw, 0.56rem);
+      letter-spacing: 1.4px;
       text-transform: uppercase;
       color: var(--peacock-teal);
       font-weight: 700;
-      margin-top: 0.1rem;
+      line-height: 1.1;
     }
 
     .parivar-parent-names {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.58rem, 1.45vw, 0.76rem);
-      letter-spacing: 1.2px;
+      font-size: clamp(0.46rem, 1.65cqw, 0.65rem);
+      letter-spacing: 0.6px;
       text-transform: uppercase;
       color: var(--dark-ink);
       font-weight: 700;
-      margin-bottom: 0.15rem;
+      line-height: 1.15;
     }
 
     .parivar-with {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(1.25rem, 3.5vw, 1.7rem);
+      font-size: clamp(0.95rem, 3.6cqw, 1.4rem);
       color: var(--antique-gold);
-      line-height: 1;
-      margin: 0.1rem 0;
+      line-height: 0.92;
+      margin: 0.05cqw 0;
     }
 
     .parivar-footer-date {
-      font-size: clamp(0.78rem, 2vw, 1.02rem);
+      font-size: clamp(0.6rem, 2.25cqw, 0.86rem);
       font-weight: 700;
       color: var(--royal-maroon);
-      margin-top: 0.15rem;
+      line-height: 1.1;
+      margin-top: 0.1cqw;
     }
 
     .parivar-footer-venue {
-      font-size: clamp(0.68rem, 1.75vw, 0.88rem);
+      font-size: clamp(0.54rem, 1.95cqw, 0.76rem);
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 700;
+      line-height: 1.1;
     }
 
     /* =================================================
-       COMMON INNER CONTAINER
+       COMMON INNER CONTAINER (SAGE GREEN THEME)
        ================================================= */
     .royal-section {
       max-width: 620px;
       margin: 0 auto;
-      padding: 4rem 1.35rem;
+      padding: 3.8rem 1.35rem;
       text-align: center;
       position: relative;
     }
@@ -387,6 +428,7 @@
       color: var(--royal-maroon);
       font-weight: 400;
       line-height: 1.1;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     /* =================================================
@@ -397,17 +439,16 @@
       max-width: 420px;
       margin: 1.8rem auto 0;
       padding: 16px;
-      background: linear-gradient(145deg, #FFFDF9 0%, #F3E4C8 100%);
+      background: linear-gradient(145deg, var(--sage-card-inner) 0%, #DFE7D6 100%);
       border: 2px solid var(--antique-gold);
       border-radius: 210px 210px 24px 24px;
       box-shadow:
-        0 18px 45px rgba(90, 18, 28, 0.18),
-        inset 0 0 0 4px #FFFDF9,
-        inset 0 0 0 6px rgba(182, 134, 44, 0.55);
+        0 18px 45px rgba(28, 42, 30, 0.2),
+        inset 0 0 0 4px var(--sage-card-inner),
+        inset 0 0 0 6px rgba(158, 114, 32, 0.5);
       user-select: none;
     }
 
-    /* Decorative corner ornament badge at top of arch */
     .frame-crown-badge {
       position: absolute;
       top: -15px;
@@ -431,7 +472,7 @@
       border-radius: 195px 195px 14px 14px;
       overflow: hidden;
       position: relative;
-      background: #E8D7B9;
+      background: #CFD8C7;
       border: 1.5px solid var(--antique-gold);
       touch-action: pan-y;
       cursor: grab;
@@ -462,7 +503,6 @@
       pointer-events: none;
     }
 
-    /* Prev / Next Side Golden Buttons */
     .slider-arrow {
       position: absolute;
       top: 52%;
@@ -470,7 +510,7 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: rgba(90, 18, 28, 0.88);
+      background: rgba(90, 18, 28, 0.9);
       border: 1.5px solid var(--bright-gold);
       color: #FFFDF7;
       display: flex;
@@ -502,7 +542,7 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: rgba(182, 134, 44, 0.35);
+      background: rgba(158, 114, 32, 0.35);
       border: 1px solid var(--antique-gold);
       cursor: pointer;
       transition: all 0.3s ease;
@@ -520,7 +560,7 @@
       font-size: 0.68rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--peacock-teal);
+      color: var(--deep-emerald);
       margin-top: 0.6rem;
       font-weight: 700;
     }
@@ -531,18 +571,19 @@
     .blessings-quote {
       font-style: italic;
       font-size: clamp(1.08rem, 2.8vw, 1.3rem);
-      color: var(--text-muted);
+      color: #2E3B2F;
       max-width: 440px;
       margin: 0.8rem auto 2rem;
       line-height: 1.45;
+      font-weight: 600;
     }
 
     .blessings-frame {
-      background: linear-gradient(180deg, #FFFDF9 0%, #F7EFE0 100%);
+      background: linear-gradient(180deg, var(--sage-card-inner) 0%, var(--sage-card) 100%);
       border: 1.5px solid var(--antique-gold);
       border-radius: 18px;
       padding: 2.5rem 1.5rem;
-      box-shadow: 0 12px 35px rgba(182, 134, 44, 0.14);
+      box-shadow: 0 12px 35px rgba(28, 42, 30, 0.14);
     }
 
     .blessings-subhead {
@@ -572,9 +613,9 @@
        5. COUNTDOWN & 6. LOCATION SECTION
        ================================================= */
     .countdown-location-wrapper {
-      background: linear-gradient(180deg, #F6EBD8 0%, var(--parchment-cream) 100%);
-      border-top: 1px solid rgba(182, 134, 44, 0.3);
-      border-bottom: 1px solid rgba(182, 134, 44, 0.3);
+      background: linear-gradient(180deg, var(--sage-deep) 0%, var(--sage-bg) 100%);
+      border-top: 1px solid rgba(158, 114, 32, 0.35);
+      border-bottom: 1px solid rgba(158, 114, 32, 0.35);
     }
 
     .countdown-row {
@@ -595,14 +636,15 @@
     .cd-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.4rem, 7vw, 3.5rem);
-      font-weight: 600;
+      font-weight: 700;
       color: var(--royal-maroon);
       line-height: 1;
     }
 
     .cd-label {
-      font-size: 0.88rem;
-      color: var(--text-muted);
+      font-size: 0.9rem;
+      color: #2B372C;
+      font-weight: 600;
       margin-top: 0.35rem;
     }
 
@@ -617,7 +659,8 @@
     .until-text {
       font-style: italic;
       font-size: clamp(1.05rem, 2.8vw, 1.28rem);
-      color: var(--text-muted);
+      color: #2B372C;
+      font-weight: 600;
       margin-bottom: 3.2rem;
     }
 
@@ -626,7 +669,7 @@
       font-size: 1.15rem;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--peacock-teal);
+      color: var(--deep-emerald);
       font-weight: 700;
       margin-top: 1rem;
     }
@@ -640,7 +683,8 @@
 
     .location-address {
       font-size: 1.12rem;
-      color: var(--text-muted);
+      color: #2B372C;
+      font-weight: 600;
       line-height: 1.45;
     }
 
@@ -703,7 +747,7 @@
       transform: translate(-50%, -50%) rotate(45deg);
       width: 14px;
       height: 14px;
-      background: var(--parchment-cream);
+      background: var(--sage-card-inner);
       border: 2px solid var(--antique-gold);
       z-index: 3;
       display: flex;
@@ -738,7 +782,7 @@
       font-size: clamp(0.62rem, 1.8vw, 0.76rem);
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--peacock-teal);
+      color: var(--deep-emerald);
       font-weight: 700;
       margin-bottom: 0.15rem;
     }
@@ -760,14 +804,16 @@
     .tl-title-hi {
       font-family: 'Tiro Devanagari Sanskrit', serif;
       font-size: clamp(0.95rem, 2.6vw, 1.12rem);
-      color: var(--antique-gold);
+      color: #7D5611;
+      font-weight: 700;
       margin-bottom: 0.45rem;
     }
 
     .tl-venue {
       font-style: italic;
       font-size: clamp(0.9rem, 2.4vw, 1.05rem);
-      color: var(--text-muted);
+      color: #2E3B2F;
+      font-weight: 600;
       margin-bottom: 0.55rem;
     }
 
@@ -787,11 +833,11 @@
        8. RSVP SECTION
        ================================================= */
     .rsvp-box {
-      background: linear-gradient(180deg, #FFFDF9 0%, #F7EFE0 100%);
+      background: linear-gradient(180deg, var(--sage-card-inner) 0%, var(--sage-card) 100%);
       border: 1.5px solid var(--antique-gold);
       border-radius: 18px;
       padding: 2.2rem 1.5rem;
-      box-shadow: 0 12px 35px rgba(182, 134, 44, 0.14);
+      box-shadow: 0 12px 35px rgba(28, 42, 30, 0.14);
       text-align: left;
       margin-top: 1.5rem;
     }
@@ -812,9 +858,9 @@
     .form-input {
       width: 100%;
       padding: 0.78rem 0.95rem;
-      border: 1px solid rgba(182, 134, 44, 0.55);
+      border: 1px solid rgba(158, 114, 32, 0.55);
       border-radius: 8px;
-      background: var(--parchment-cream);
+      background: #FFFFFF;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.9rem;
       color: var(--dark-ink);
@@ -870,7 +916,7 @@
   </div>
 
   <!-- =================================================
-       2. HERO SECTION (WITH STAGGERED FONT ANIMATIONS)
+       2. HERO SECTION (CALIBRATED strictly inside blank cream zone)
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="hero-stage">
@@ -884,11 +930,11 @@
           Priya Mehta
         </h1>
 
-        <div class="ornament-divider anim-item delay-4" style="max-width: 190px; margin: 0.35rem auto;">
-          <svg viewBox="0 0 240 24" fill="none">
-            <path d="M10 12H95M145 12H230" stroke="#B6862C" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="120" cy="12" r="5" stroke="#B6862C" stroke-width="1.5"/>
-            <circle cx="120" cy="12" r="2" fill="#5A121C"/>
+        <div class="hero-divider-wrap anim-item delay-4">
+          <svg viewBox="0 0 240 20" fill="none">
+            <path d="M10 10H98M142 10H230" stroke="#9E7220" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="120" cy="10" r="4.5" stroke="#9E7220" stroke-width="1.5"/>
+            <circle cx="120" cy="10" r="2" fill="#5A121C"/>
           </svg>
         </div>
 
@@ -902,51 +948,50 @@
   </section>
 
   <!-- =================================================
-       3. PARIVAR & AASHIRWAD (WITH STAGGERED FONT ANIMATIONS)
+       3. PARIVAR & AASHIRWAD (CALIBRATED strictly below chandelier & above peacocks)
        ================================================= -->
   <section class="artwork-section-wrapper">
     <div class="artwork-stage" id="parivar-stage">
       <div class="parivar-blank-zone">
-        <svg class="ganesh-emblem anim-item delay-1" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="30" fill="#5A121C" fill-opacity="0.08" stroke="#B6862C" stroke-width="1.5"/>
-          <path d="M32 12L36 20H28L32 12Z" fill="#B6862C"/>
-          <path d="M24 26C24 21.5 27.5 18 32 18C36.5 18 40 21.5 40 26C40 31 35 34 35 39C35 41.5 37 43 39 42" stroke="#5A121C" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="32" cy="24" r="1.8" fill="#B6862C"/>
-        </svg>
+        <div class="font-sanskrit parivar-shloka anim-item delay-1">॥ श्री गणेशाय नमः ॥</div>
 
-        <div class="font-sanskrit parivar-shloka anim-item delay-2">॥ श्री गणेशाय नमः ॥</div>
-
-        <div class="ornament-divider anim-item delay-3" style="max-width: 155px; margin: 0.2rem auto;">
-          <svg viewBox="0 0 240 20" fill="none">
-            <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
-            <circle cx="120" cy="10" r="4.5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <div class="parivar-mini-divider anim-item delay-2">
+          <svg viewBox="0 0 240 18" fill="none">
+            <path d="M15 9C55 2 85 16 120 9C155 2 185 16 225 9" stroke="#9E7220" stroke-width="1.5"/>
+            <circle cx="120" cy="9" r="4" fill="#FBF6EC" stroke="#5A121C" stroke-width="1.8"/>
           </svg>
         </div>
 
-        <p class="parivar-invite-text anim-item delay-4">
+        <p class="parivar-invite-text anim-item delay-3">
           With the blessings of our elders,<br />
           you are cordially invited to the wedding of
         </p>
 
-        <div class="parivar-couple-name anim-item delay-5">Amit Sharma</div>
-        <div class="parivar-parent-label anim-item delay-6">SON OF</div>
-        <div class="parivar-parent-names anim-item delay-6">MR. RAJESH SHARMA &amp; MRS. SUNITA SHARMA</div>
+        <div class="parivar-couple-name anim-item delay-4">Amit Sharma</div>
+        <div class="parivar-parent-label anim-item delay-5">SON OF</div>
+        <div class="parivar-parent-names anim-item delay-5">
+          MR. RAJESH SHARMA &amp; MRS. SUNITA SHARMA
+        </div>
 
-        <div class="parivar-with anim-item delay-7">with</div>
+        <div class="parivar-with anim-item delay-6">with</div>
 
-        <div class="parivar-couple-name anim-item delay-8">Priya Mehta</div>
-        <div class="parivar-parent-label anim-item delay-9">DAUGHTER OF</div>
-        <div class="parivar-parent-names anim-item delay-9">MR. SANJAY MEHTA &amp; MRS. KAVITA MEHTA</div>
+        <div class="parivar-couple-name anim-item delay-7">Priya Mehta</div>
+        <div class="parivar-parent-label anim-item delay-8">DAUGHTER OF</div>
+        <div class="parivar-parent-names anim-item delay-8">
+          MR. SANJAY MEHTA &amp; MRS. KAVITA MEHTA
+        </div>
 
-        <div class="ornament-divider anim-item delay-10" style="max-width: 155px; margin: 0.25rem auto;">
-          <svg viewBox="0 0 240 20" fill="none">
-            <path d="M15 10C55 2 85 18 120 10C155 2 185 18 225 10" stroke="#B6862C" stroke-width="1.6"/>
-            <circle cx="120" cy="10" r="4.5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <div class="parivar-mini-divider anim-item delay-9">
+          <svg viewBox="0 0 240 18" fill="none">
+            <path d="M15 9C55 2 85 16 120 9C155 2 185 16 225 9" stroke="#9E7220" stroke-width="1.5"/>
+            <circle cx="120" cy="9" r="4" fill="#FBF6EC" stroke="#5A121C" stroke-width="1.8"/>
           </svg>
         </div>
 
         <div class="parivar-footer-date anim-item delay-10">Tuesday, 19 January 2027</div>
-        <div class="parivar-footer-venue anim-item delay-10">The Grand Heritage Palace, Amer Road, Jaipur</div>
+        <div class="parivar-footer-venue anim-item delay-10">
+          The Grand Heritage Palace, Amer Road, Jaipur
+        </div>
       </div>
     </div>
   </section>
@@ -959,45 +1004,37 @@
 
     <div class="ornament-divider">
       <svg viewBox="0 0 240 22" fill="none">
-        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-        <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+        <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
       </svg>
     </div>
 
     <div class="couple-frame-outer">
       <div class="frame-crown-badge">AMIT &amp; PRIYA</div>
 
-      <!-- Left / Right Arrow Buttons -->
       <button class="slider-arrow prev" id="slide-prev" aria-label="Previous Photo">&#10094;</button>
       <button class="slider-arrow next" id="slide-next" aria-label="Next Photo">&#10095;</button>
 
-      <!-- Swipeable Arch Frame Viewport -->
       <div class="slider-viewport" id="couple-slider">
         <div class="slider-track" id="slider-track">
-          <!-- Image 1 -->
           <div class="slide-item">
             <img src="couple-1.jpg" alt="Amit & Priya Photo 1" />
           </div>
-          <!-- Image 2 -->
           <div class="slide-item">
             <img src="couple-2.jpg" alt="Amit & Priya Photo 2" />
           </div>
-          <!-- Image 3 -->
           <div class="slide-item">
             <img src="couple-3.jpg" alt="Amit & Priya Photo 3" />
           </div>
-          <!-- Image 4 -->
           <div class="slide-item">
             <img src="couple-4.jpg" alt="Amit & Priya Photo 4" />
           </div>
-          <!-- Image 5 -->
           <div class="slide-item">
             <img src="couple-5.jpg" alt="Amit & Priya Photo 5" />
           </div>
         </div>
       </div>
 
-      <!-- 5 Dots Indicator -->
       <div class="slider-dots" id="slider-dots">
         <span class="slider-dot active" data-index="0"></span>
         <span class="slider-dot" data-index="1"></span>
@@ -1018,8 +1055,8 @@
 
     <div class="ornament-divider">
       <svg viewBox="0 0 240 22" fill="none">
-        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-        <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+        <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
       </svg>
     </div>
 
@@ -1040,8 +1077,8 @@
 
       <div class="ornament-divider" style="margin: 1.5rem auto;">
         <svg viewBox="0 0 240 22" fill="none">
-          <path d="M25 11C70 3 95 19 120 11C145 3 170 19 215 11" stroke="#B6862C" stroke-width="1.6"/>
-          <circle cx="120" cy="11" r="4.5" fill="#FBF6EC" stroke="#5A121C" stroke-width="1.8"/>
+          <path d="M25 11C70 3 95 19 120 11C145 3 170 19 215 11" stroke="#9E7220" stroke-width="1.6"/>
+          <circle cx="120" cy="11" r="4.5" fill="#EBF0E6" stroke="#5A121C" stroke-width="1.8"/>
         </svg>
       </div>
 
@@ -1061,8 +1098,8 @@
 
       <div class="ornament-divider">
         <svg viewBox="0 0 240 22" fill="none">
-          <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-          <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+          <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+          <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
         </svg>
       </div>
 
@@ -1096,8 +1133,8 @@
 
       <div class="ornament-divider">
         <svg viewBox="0 0 240 22" fill="none">
-          <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-          <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+          <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+          <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
         </svg>
       </div>
 
@@ -1118,13 +1155,13 @@
       </a>
 
       <svg class="palace-illustration" viewBox="0 0 500 220" fill="none">
-        <ellipse cx="250" cy="210" rx="220" ry="30" fill="#B6862C" fill-opacity="0.18"/>
+        <ellipse cx="250" cy="210" rx="220" ry="30" fill="#9E7220" fill-opacity="0.18"/>
         <path d="M85 110C85 88 105 75 115 62C125 75 145 88 145 110H85Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
         <path d="M355 110C355 88 375 75 385 62C395 75 415 88 415 110H355Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
         <path d="M185 95C185 52 230 35 250 14C270 35 315 52 315 95H185Z" fill="#F2D57E" stroke="#5A121C" stroke-width="1.8"/>
-        <rect x="65" y="110" width="370" height="105" fill="#F7E7C4" stroke="#B6862C" stroke-width="2"/>
-        <rect x="165" y="95" width="170" height="120" fill="#FFF4DC" stroke="#B6862C" stroke-width="2"/>
-        <path d="M205 215V155C205 132 235 124 250 112C265 124 295 132 295 155V215H205Z" fill="#5A121C" stroke="#B6862C" stroke-width="2"/>
+        <rect x="65" y="110" width="370" height="105" fill="#F7E7C4" stroke="#9E7220" stroke-width="2"/>
+        <rect x="165" y="95" width="170" height="120" fill="#FFF4DC" stroke="#9E7220" stroke-width="2"/>
+        <path d="M205 215V155C205 132 235 124 250 112C265 124 295 132 295 155V215H205Z" fill="#5A121C" stroke="#9E7220" stroke-width="2"/>
       </svg>
     </section>
   </div>
@@ -1137,8 +1174,8 @@
 
     <div class="ornament-divider">
       <svg viewBox="0 0 240 22" fill="none">
-        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-        <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+        <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
       </svg>
     </div>
 
@@ -1148,7 +1185,7 @@
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
           <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="64" fill="#F4D77B" fill-opacity="0.22" stroke="#B6862C" stroke-dasharray="4 4"/>
+            <circle cx="80" cy="80" r="64" fill="#F4D77B" fill-opacity="0.28" stroke="#9E7220" stroke-dasharray="4 4"/>
             <path d="M48 92C48 118 62 132 80 132C98 132 112 118 112 92H48Z" fill="#D4AF37" stroke="#5A121C" stroke-width="2"/>
             <ellipse cx="80" cy="92" rx="34" ry="8" fill="#F6C324" stroke="#5A121C" stroke-width="1.8"/>
           </svg>
@@ -1177,8 +1214,8 @@
         <div class="tl-col-right tl-art-box">
           <svg viewBox="0 0 160 180" fill="none">
             <path d="M25 32C55 8 105 8 135 32" stroke="#E67E22" stroke-width="10" stroke-linecap="round" stroke-dasharray="3 9"/>
-            <line x1="38" y1="26" x2="38" y2="128" stroke="#B6862C" stroke-width="2"/>
-            <line x1="122" y1="26" x2="122" y2="128" stroke="#B6862C" stroke-width="2"/>
+            <line x1="38" y1="26" x2="38" y2="128" stroke="#9E7220" stroke-width="2"/>
+            <line x1="122" y1="26" x2="122" y2="128" stroke="#9E7220" stroke-width="2"/>
             <rect x="28" y="125" width="104" height="7" rx="3" fill="#8D5B28" stroke="#5A121C" stroke-width="1.5"/>
             <circle cx="78" cy="64" r="11" fill="#F3D1B0" stroke="#5A121C" stroke-width="1.2"/>
             <path d="M64 95L36 156H108L88 95H64Z" fill="#F39C12" stroke="#5A121C" stroke-width="1.5"/>
@@ -1220,7 +1257,7 @@
         <div class="tl-col-right tl-art-box">
           <svg viewBox="0 0 160 165" fill="none">
             <path d="M36 58C36 30 124 30 124 58H36Z" fill="#5A121C" stroke="#D4AF37" stroke-width="2"/>
-            <line x1="80" y1="22" x2="80" y2="140" stroke="#B6862C" stroke-width="2.5"/>
+            <line x1="80" y1="22" x2="80" y2="140" stroke="#9E7220" stroke-width="2.5"/>
           </svg>
         </div>
       </div>
@@ -1230,7 +1267,7 @@
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
           <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="60" fill="#0C3836" fill-opacity="0.08" stroke="#B6862C" stroke-width="1.5"/>
+            <circle cx="80" cy="80" r="60" fill="#0C3836" fill-opacity="0.1" stroke="#9E7220" stroke-width="1.5"/>
             <path d="M50 85C50 65 65 55 80 55C95 55 110 65 110 85H50Z" fill="#D4AF37" stroke="#5A121C" stroke-width="1.5"/>
           </svg>
         </div>
@@ -1254,8 +1291,8 @@
 
     <div class="ornament-divider">
       <svg viewBox="0 0 240 22" fill="none">
-        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#B6862C" stroke-width="1.8"/>
-        <circle cx="120" cy="11" r="5" fill="#FBF6EC" stroke="#5A121C" stroke-width="2"/>
+        <path d="M10 11C60 2 90 20 120 11C150 2 180 20 230 11" stroke="#9E7220" stroke-width="1.8"/>
+        <circle cx="120" cy="11" r="5" fill="#EBF0E6" stroke="#5A121C" stroke-width="2"/>
       </svg>
     </div>
 
@@ -1305,13 +1342,11 @@
       iconPause.style.display = playing ? 'block' : 'none';
     }
 
-    // Trigger Hero Section font entrance animation as soon as intro closes
     function closeIntroAndShowHero() {
       introScreen.classList.add('hidden-intro');
       heroStage.classList.add('section-animated');
     }
 
-    // Scroll Observer for Parivar & Aashirwad Section (Triggers on first view)
     const sectionObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1319,7 +1354,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.28 });
+    }, { threshold: 0.25 });
 
     sectionObserver.observe(parivarStage);
 
@@ -1329,7 +1364,6 @@
       }
     });
 
-    // 1. Intro Screen Tap
     introScreen.addEventListener('click', () => {
       if (introTriggered) {
         closeIntroAndShowHero();
@@ -1363,7 +1397,6 @@
       if (introTriggered) closeIntroAndShowHero();
     });
 
-    // 2. Floating Music Toggle
     musicToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (bgMusic.paused) {
@@ -1374,7 +1407,7 @@
       }
     });
 
-    // 3. Swipeable 5 Couple Photos Slider Logic
+    // Swipeable 5 Couple Photos Slider Logic
     const sliderTrack = document.getElementById('slider-track');
     const sliderViewport = document.getElementById('couple-slider');
     const dots = document.querySelectorAll('.slider-dot');
@@ -1402,7 +1435,6 @@
       });
     });
 
-    // Touch Swipe Events for Mobile
     sliderViewport.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
@@ -1414,16 +1446,12 @@
       const diffX = startX - endX;
 
       if (Math.abs(diffX) > 40) {
-        if (diffX > 0) {
-          goToSlide(currentSlide + 1); // Swipe Left -> Next
-        } else {
-          goToSlide(currentSlide - 1); // Swipe Right -> Prev
-        }
+        if (diffX > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
       }
       isDragging = false;
     });
 
-    // Mouse Drag Support for Desktop
     sliderViewport.addEventListener('mousedown', (e) => {
       startX = e.clientX;
       isDragging = true;
@@ -1439,7 +1467,7 @@
       isDragging = false;
     });
 
-    // 4. Live Countdown Timer
+    // Live Countdown Timer
     const targetWeddingDate = new Date('2027-01-19T19:00:00+05:30').getTime();
 
     function updateCountdownTimer() {
@@ -1461,7 +1489,7 @@
     setInterval(updateCountdownTimer, 1000);
     updateCountdownTimer();
 
-    // 5. RSVP Form
+    // RSVP Form
     document.getElementById('rsvp-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const guestName = document.getElementById('guest-name').value.trim();
