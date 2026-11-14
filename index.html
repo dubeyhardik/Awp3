@@ -221,12 +221,6 @@
       background-color: #E6DEC8;
     }
 
-    /*
-      Calibrated strictly between:
-      - Top Mandala lowest tips (ends at ~24.8%)
-      - Bottom Peacock feather tips (starts at ~53.5%)
-      - Side yellow rose leaves (15% left/right margin)
-    */
     .hero-blank-zone {
       position: absolute;
       top: 25.5%;
@@ -311,12 +305,6 @@
       background-color: var(--sage-bg);
     }
 
-    /*
-      Calibrated strictly inside the blank cream arch:
-      - Below the hanging golden chandelier crystal drop (ends at ~40.8%)
-      - Above the two peacock heads & bottom roses (starts at ~76.5%)
-      - Inside the two floral inner pillar edges (25.5% left & right)
-    */
     .parivar-blank-zone {
       position: absolute;
       top: 41.5%;
@@ -702,10 +690,21 @@
       font-weight: 700;
     }
 
-    .palace-illustration {
+    .palace-photo-box {
       width: 100%;
       max-width: 440px;
       margin: 2rem auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid var(--antique-gold);
+      box-shadow: 0 12px 30px rgba(28, 42, 30, 0.18);
+      background: var(--sage-card-inner);
+    }
+
+    .palace-photo-box img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       display: block;
     }
 
@@ -771,10 +770,16 @@
       align-items: center;
     }
 
-    .tl-art-box svg {
+    .tl-art-box img {
       width: 100%;
       max-width: 155px;
-      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1.5px solid var(--antique-gold);
+      background: var(--sage-card-inner);
+      box-shadow: 0 8px 20px rgba(28, 42, 30, 0.16);
+      display: block;
     }
 
     .tl-date {
@@ -1018,19 +1023,19 @@
       <div class="slider-viewport" id="couple-slider">
         <div class="slider-track" id="slider-track">
           <div class="slide-item">
-            <img src="couple-1.jpg" alt="Amit & Priya Photo 1" />
+            <img src="coup.jpg" alt="Amit & Priya Photo 1" />
           </div>
           <div class="slide-item">
-            <img src="couple-2.jpg" alt="Amit & Priya Photo 2" />
+            <img src="coup.jpg" alt="Amit & Priya Photo 2" />
           </div>
           <div class="slide-item">
-            <img src="couple-3.jpg" alt="Amit & Priya Photo 3" />
+            <img src="coup.jpg" alt="Amit & Priya Photo 3" />
           </div>
           <div class="slide-item">
-            <img src="couple-4.jpg" alt="Amit & Priya Photo 4" />
+            <img src="coup.jpg" alt="Amit & Priya Photo 4" />
           </div>
           <div class="slide-item">
-            <img src="couple-5.jpg" alt="Amit & Priya Photo 5" />
+            <img src="coup.jpg" alt="Amit & Priya Photo 5" />
           </div>
         </div>
       </div>
@@ -1093,7 +1098,7 @@
        5. COUNTDOWN & 6. LOCATION
        ================================================= -->
   <div class="countdown-location-wrapper">
-    <section class="royal-section" style="padding-bottom: 0;">
+    <section class="royal-section" style="padding-bottom: 2.8rem;">
       <h2 class="script-heading">The celebration begins</h2>
 
       <div class="ornament-divider">
@@ -1154,15 +1159,9 @@
         Open in Google Maps
       </a>
 
-      <svg class="palace-illustration" viewBox="0 0 500 220" fill="none">
-        <ellipse cx="250" cy="210" rx="220" ry="30" fill="#9E7220" fill-opacity="0.18"/>
-        <path d="M85 110C85 88 105 75 115 62C125 75 145 88 145 110H85Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
-        <path d="M355 110C355 88 375 75 385 62C395 75 415 88 415 110H355Z" fill="#E6C762" stroke="#5A121C" stroke-width="1.5"/>
-        <path d="M185 95C185 52 230 35 250 14C270 35 315 52 315 95H185Z" fill="#F2D57E" stroke="#5A121C" stroke-width="1.8"/>
-        <rect x="65" y="110" width="370" height="105" fill="#F7E7C4" stroke="#9E7220" stroke-width="2"/>
-        <rect x="165" y="95" width="170" height="120" fill="#FFF4DC" stroke="#9E7220" stroke-width="2"/>
-        <path d="M205 215V155C205 132 235 124 250 112C265 124 295 132 295 155V215H205Z" fill="#5A121C" stroke="#9E7220" stroke-width="2"/>
-      </svg>
+      <div class="palace-photo-box">
+        <img src="palace.jpg" alt="The Grand Heritage Palace, Jaipur" />
+      </div>
     </section>
   </div>
 
@@ -1184,11 +1183,7 @@
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="64" fill="#F4D77B" fill-opacity="0.28" stroke="#9E7220" stroke-dasharray="4 4"/>
-            <path d="M48 92C48 118 62 132 80 132C98 132 112 118 112 92H48Z" fill="#D4AF37" stroke="#5A121C" stroke-width="2"/>
-            <ellipse cx="80" cy="92" rx="34" ry="8" fill="#F6C324" stroke="#5A121C" stroke-width="1.8"/>
-          </svg>
+          <img src="haldi.jpg" alt="Haldi Ceremony" />
         </div>
         <div class="tl-col-right">
           <div class="tl-date">SUN, 17 JAN 2027 • 10:00 AM</div>
@@ -1212,14 +1207,7 @@
           <a href="#rsvp-section" class="tl-rsvp-link">RSVP</a>
         </div>
         <div class="tl-col-right tl-art-box">
-          <svg viewBox="0 0 160 180" fill="none">
-            <path d="M25 32C55 8 105 8 135 32" stroke="#E67E22" stroke-width="10" stroke-linecap="round" stroke-dasharray="3 9"/>
-            <line x1="38" y1="26" x2="38" y2="128" stroke="#9E7220" stroke-width="2"/>
-            <line x1="122" y1="26" x2="122" y2="128" stroke="#9E7220" stroke-width="2"/>
-            <rect x="28" y="125" width="104" height="7" rx="3" fill="#8D5B28" stroke="#5A121C" stroke-width="1.5"/>
-            <circle cx="78" cy="64" r="11" fill="#F3D1B0" stroke="#5A121C" stroke-width="1.2"/>
-            <path d="M64 95L36 156H108L88 95H64Z" fill="#F39C12" stroke="#5A121C" stroke-width="1.5"/>
-          </svg>
+          <img src="mehendi.jpg" alt="Mehendi Ceremony" />
         </div>
       </div>
 
@@ -1227,11 +1215,7 @@
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <svg viewBox="0 0 160 180" fill="none">
-            <path d="M92 68C128 65 142 36 122 18C108 6 88 12 80 16" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
-            <circle cx="66" cy="64" r="9" fill="#E8BE9A"/>
-            <path d="M54 76L88 68L82 112H50L54 76Z" fill="#ECF0F1" stroke="#5A121C" stroke-width="1.5"/>
-          </svg>
+          <img src="sangeet.jpg" alt="Sangeet Night" />
         </div>
         <div class="tl-col-right">
           <div class="tl-date">MON, 18 JAN 2027 • 07:00 PM</div>
@@ -1255,10 +1239,7 @@
           <a href="#rsvp-section" class="tl-rsvp-link">RSVP</a>
         </div>
         <div class="tl-col-right tl-art-box">
-          <svg viewBox="0 0 160 165" fill="none">
-            <path d="M36 58C36 30 124 30 124 58H36Z" fill="#5A121C" stroke="#D4AF37" stroke-width="2"/>
-            <line x1="80" y1="22" x2="80" y2="140" stroke="#9E7220" stroke-width="2.5"/>
-          </svg>
+          <img src="wedding.jpg" alt="Shubh Vivah Ceremony" />
         </div>
       </div>
 
@@ -1266,10 +1247,7 @@
       <div class="tl-row">
         <div class="tl-diamond"></div>
         <div class="tl-col-left tl-art-box">
-          <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="60" fill="#0C3836" fill-opacity="0.1" stroke="#9E7220" stroke-width="1.5"/>
-            <path d="M50 85C50 65 65 55 80 55C95 55 110 65 110 85H50Z" fill="#D4AF37" stroke="#5A121C" stroke-width="1.5"/>
-          </svg>
+          <img src="reception.jpg" alt="Grand Reception" />
         </div>
         <div class="tl-col-right">
           <div class="tl-date">WED, 20 JAN 2027 • 07:30 PM</div>
